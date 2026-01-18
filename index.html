@@ -7,31 +7,49 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/kodanzo-logo-light.png">
     <style>
+        /* Reset margins and prevent the main page from scrolling */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
-            overflow: hidden; /* Prevents double scrollbars */
+            overflow: hidden; 
+            background-color: #000; /* Matches your site theme while loading */
         }
+
+        /* The container acts as a 'mask' */
+        .viewport-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
         iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            
+            /* Calculates height to be taller than the screen.
+               60px is usually enough to push the Framer badge 
+               below the fold of the container.
+            */
+            height: calc(100vh + 60px); 
             border: none;
         }
     </style>
 </head>
 <body>
 
-    <iframe 
-        src="https://kodanzo.framer.website/" 
-        title="Kodanzo Website"
-        allow="autoplay; fullscreen"
-        loading="lazy">
-    </iframe>
+    <div class="viewport-container">
+        <iframe 
+            src="https://kodanzo.framer.website/" 
+            title="Kodanzo Website"
+            allow="autoplay; fullscreen"
+            loading="lazy">
+        </iframe>
+    </div>
 
 </body>
 </html>
